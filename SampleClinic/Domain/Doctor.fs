@@ -1,5 +1,6 @@
 ﻿namespace SampleClinic.Domain
 
+[<AllowNullLiteral>]
 type Doctor private (id: string, isActive: bool) =
     member val Id = id with get
     member val IsActive = isActive with get

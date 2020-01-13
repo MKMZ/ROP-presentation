@@ -1,5 +1,6 @@
 ﻿namespace SampleClinic.Domain
 
+[<AllowNullLiteral>]
 type PatientPackage private (patientId: string, packageType: string) =
     member val PatientId = patientId with get
     member val PackageType = packageType with get

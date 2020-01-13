@@ -11,10 +11,13 @@
     <Compile Include="Repositories\PatientPackageRepository.fs" />
     <Compile Include="Repositories\PatientRepository.fs" />
     <Compile Include="Repositories\DoctorRepository.fs" />
+    <Compile Include="Repositories\ReservationRepository.fs" />
+    <Compile Include="ROPHelper.fs" />
     <Compile Include="Startup.fs" />
     <Compile Include="Program.fs" />
     <Compile Include="UseCases\Statuses\ReserveDoctorAppointmentStatus.fs" />
     <Compile Include="UseCases\Commands\ReserveDoctorAppointmentCommand.fs" />
+    <Compile Include="UseCases\ReserveDoctorAppointmentUseCaseContext.fs" />
     <Compile Include="UseCases\ReserveDoctorAppointmentUseCase.fs" />
     <Compile Include="Controllers\DoctorAppointmentController.fs" />
   </ItemGroup>
