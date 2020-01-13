@@ -1,0 +1,42 @@
+@startuml csharp_usecase
+scale 2
+left to right direction
+
+
+state ReserveDoctorAppointmentUseCase {
+
+  state CatchException
+  
+  state TryBlock {
+    state GetDoctorById
+    state ValidateDoctor
+    state GetPatientById
+    state ValidatePatient
+    state GetPatientPackage
+    state ValidatePatientPackage
+    state MakeReservation
+  }
+
+  [*] --> GetDoctorById
+  GetDoctorById -> CatchException
+  GetDoctorById -> ValidateDoctor
+  ValidateDoctor -> GetPatientById
+  GetPatientById -> CatchException
+  GetPatientById -> ValidatePatient
+  ValidatePatient -> GetPatientPackage
+  GetPatientPackage -> CatchException
+  GetPatientPackage -> ValidatePatientPackage
+  ValidatePatientPackage -> MakeReservation
+  MakeReservation -> CatchException
+  MakeReservation -> ReturnSuccess
+
+  ValidatePatientPackage -> ReturnFail
+  ValidatePatient -> ReturnFail
+  ValidateDoctor -> ReturnFail
+  CatchException -> ReturnFail
+
+  ReturnSuccess --> [*]
+  ReturnFail --> [*]
+}
+
+@enduml

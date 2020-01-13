@@ -1,0 +1,57 @@
+@startuml rop_usecase
+scale 2
+left to right direction
+
+
+state ReserveDoctorAppointmentUseCase {
+
+  state SuccessBranch {
+    state GetDoctorById_Success
+    state ValidateDoctor_Success
+    state GetPatientById_Success
+    state ValidatePatient_Success
+    state GetPatientPackage_Success
+    state ValidatePatientPackage_Success
+    state MakeReservation_Success
+  }
+
+  state FailureBranch {
+    state GetDoctorById_Failure
+    state ValidateDoctor_Failure
+    state GetPatientById_Failure
+    state ValidatePatient_Failure
+    state GetPatientPackage_Failure
+    state ValidatePatientPackage_Failure
+    state MakeReservation_Failure
+  }
+
+  [*] --> GetDoctorById_Success
+  GetDoctorById_Success -> ValidateDoctor_Success
+  GetDoctorById_Success -> GetDoctorById_Failure
+  GetDoctorById_Failure -> ValidateDoctor_Failure
+
+  ValidateDoctor_Success -> GetPatientById_Success
+  ValidateDoctor_Success -> ValidateDoctor_Failure
+  ValidateDoctor_Failure -> GetPatientById_Failure
+
+  GetPatientById_Success -> ValidatePatient_Success
+  GetPatientById_Success -> GetPatientById_Failure
+  GetPatientById_Failure -> ValidatePatient_Failure
+
+  ValidatePatient_Success -> GetPatientPackage_Success
+  ValidatePatient_Success -> ValidatePatient_Failure
+  ValidatePatient_Failure -> GetPatientPackage_Failure
+
+  GetPatientPackage_Success -> ValidatePatientPackage_Success
+  GetPatientPackage_Success -> GetPatientPackage_Failure
+  GetPatientPackage_Failure -> ValidatePatientPackage_Failure
+
+  ValidatePatientPackage_Success -> MakeReservation_Success
+  ValidatePatientPackage_Success -> ValidatePatientPackage_Failure
+  ValidatePatientPackage_Failure -> MakeReservation_Failure
+
+  MakeReservation_Success --> [*]
+  MakeReservation_Failure --> [*]
+}
+
+@enduml

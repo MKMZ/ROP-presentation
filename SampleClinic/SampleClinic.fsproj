@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Domain\Patient.fs" />
+    <Compile Include="Domain\Doctor.fs" />
+    <Compile Include="Domain\PatientPackage.fs" />
+    <Compile Include="Repositories\PatientPackageRepository.fs" />
+    <Compile Include="Repositories\PatientRepository.fs" />
+    <Compile Include="Repositories\DoctorRepository.fs" />
+    <Compile Include="Startup.fs" />
+    <Compile Include="Program.fs" />
+    <Compile Include="UseCases\Statuses\ReserveDoctorAppointmentStatus.fs" />
+    <Compile Include="UseCases\Commands\ReserveDoctorAppointmentCommand.fs" />
+    <Compile Include="UseCases\ReserveDoctorAppointmentUseCase.fs" />
+    <Compile Include="Controllers\DoctorAppointmentController.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FSharpPlus" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>
